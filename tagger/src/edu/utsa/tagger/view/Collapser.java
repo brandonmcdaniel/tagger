@@ -26,7 +26,6 @@ public class Collapser extends JComponent
 	{
 		addMouseListener(new MouseAdapter()
 		{
-			@Override public void mouseClicked(MouseEvent e){collapsed = !collapsed;}
 			@Override public void mouseEntered(MouseEvent e){mouseover = true;}
 			@Override public void mouseExited(MouseEvent e){mouseover = false;}
 		});

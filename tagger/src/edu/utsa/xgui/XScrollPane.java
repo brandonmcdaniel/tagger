@@ -142,7 +142,7 @@ public class XScrollPane extends XComponent
 		public VerticalScrollBar()
 		{
 			addMouseMotionListener(this);
-			setPreferredSize(new Dimension(10, 0));
+			setPreferredSize(new Dimension(15, 0));
 		}
 		
 		@Override public void draw(Graphics2D g)

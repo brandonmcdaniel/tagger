@@ -75,6 +75,7 @@ public class Tag extends XComponent implements ViewListener
 				{
 					Tag.this.collapse();
 				}
+				collapser.setCollapsed(!collapser.isCollapsed());
 			}
 		});
 		
