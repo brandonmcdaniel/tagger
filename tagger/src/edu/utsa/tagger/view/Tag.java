@@ -67,7 +67,14 @@ public class Tag extends XComponent implements ViewListener
 		collapser.addMouseListener(new MouseAdapter(){
 			@Override public void mouseClicked(MouseEvent e)
 			{
-				Tag.this.toggleCollapse();
+				if (collapser.isCollapsed())
+				{
+					Tag.this.uncollapse();
+				}
+				else
+				{
+					Tag.this.collapse();
+				}
 			}
 		});
 		
@@ -80,12 +87,24 @@ public class Tag extends XComponent implements ViewListener
 		add(collapser, new Anchor(name, Anchor.LEFT));
 	}
 	
-	private void toggleCollapse()
+	private void collapse()
 	{
 		for (Tag child_tag : children)
 		{
-			child_tag.setVisible(!child_tag.isVisible());
-			child_tag.toggleCollapse();
+			child_tag.setVisible(false);
+			child_tag.collapse();
+		}
+	}
+	
+	private void uncollapse()
+	{
+		for (Tag child_tag : children)
+		{
+			child_tag.setVisible(true);
+			if (!child_tag.getCollapser().isCollapsed())
+			{
+				child_tag.uncollapse();
+			}
 		}
 	}
 	
